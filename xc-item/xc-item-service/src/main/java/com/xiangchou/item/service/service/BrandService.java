@@ -2,7 +2,7 @@ package com.xiangchou.item.service.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.xiangchou.common.PageResult;
+import com.xiangchou.common.pojo.PageResult;
 import com.xiangchou.item.iterface.pojo.Brand;
 import com.xiangchou.item.service.mapper.BrandMapper;
 import org.apache.commons.lang.StringUtils;

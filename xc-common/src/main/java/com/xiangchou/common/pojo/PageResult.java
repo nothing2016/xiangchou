@@ -1,4 +1,4 @@
-package com.xiangchou.common;
+package com.xiangchou.common.pojo;
 
 import java.util.List;
 

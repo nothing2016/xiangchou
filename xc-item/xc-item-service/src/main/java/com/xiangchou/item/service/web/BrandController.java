@@ -1,6 +1,8 @@
 package com.xiangchou.item.service.web;
 
-import com.xiangchou.common.PageResult;
+import com.xiangchou.common.enums.ExceptionEnum;
+import com.xiangchou.common.exception.XcException;
+import com.xiangchou.common.pojo.PageResult;
 import com.xiangchou.item.iterface.pojo.Brand;
 import com.xiangchou.item.service.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,12 @@ public class BrandController {
             @RequestParam(value = "rows", defaultValue = "5") Integer rows,
             @RequestParam(value = "sortBy", required = false) String sortBy,
             @RequestParam(value = "desc", defaultValue = "false") Boolean desc,
-            @RequestParam(value = "key", required = false) String key) {
+            @RequestParam(value = "key", required = false) String key) throws Exception {
         PageResult<Brand> result = this.brandService.queryBrandByPageAndSort(page,rows,sortBy,desc, key);
         if (result == null || result.getItems().size() == 0) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            throw new XcException(ExceptionEnum.BRAND_NOT_FOUND);
         }
+
         return ResponseEntity.ok(result);
     }
 
